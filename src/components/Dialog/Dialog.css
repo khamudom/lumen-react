@@ -1,0 +1,77 @@
+.lumen-dialog__portal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--lumen-z-modal);
+  display: grid;
+  place-items: center;
+  padding: var(--lumen-spacing-4);
+  font-family: var(--lumen-font-family);
+}
+
+.lumen-dialog__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgb(15 23 42 / 0.5);
+}
+
+.lumen-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 32rem);
+  margin: 0;
+  padding: var(--lumen-spacing-6);
+  color: var(--lumen-color-text);
+  background: var(--lumen-color-surface);
+  border: 1px solid var(--lumen-color-border);
+  border-radius: var(--lumen-radius-lg);
+  box-shadow: var(--lumen-shadow-lg);
+}
+
+.lumen-dialog__close {
+  position: absolute;
+  top: var(--lumen-spacing-3);
+  right: var(--lumen-spacing-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  font: inherit;
+  font-size: var(--lumen-font-size-lg);
+  color: var(--lumen-color-text-secondary);
+  background: transparent;
+  border: 0;
+  border-radius: var(--lumen-radius-md);
+  cursor: pointer;
+}
+
+.lumen-dialog__close:hover {
+  color: var(--lumen-color-text);
+  background: var(--lumen-color-background);
+}
+
+.lumen-dialog__header {
+  display: grid;
+  gap: var(--lumen-spacing-1);
+  margin-bottom: var(--lumen-spacing-4);
+}
+
+.lumen-dialog__heading,
+.lumen-dialog__description {
+  margin: 0;
+}
+
+.lumen-dialog__heading {
+  padding-right: var(--lumen-spacing-5);
+  font-size: var(--lumen-font-size-xl);
+  line-height: 1.25;
+}
+
+.lumen-dialog__description {
+  color: var(--lumen-color-text-secondary);
+  font-size: var(--lumen-font-size-sm);
+}
+
+.lumen-dialog__body {
+  font-size: var(--lumen-font-size-sm);
+}

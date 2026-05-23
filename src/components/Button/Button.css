@@ -1,0 +1,123 @@
+.lumen-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lumen-button-gap);
+  min-height: var(--lumen-button-min-height);
+  padding: var(--lumen-button-padding);
+  font-family: var(--lumen-font-family);
+  font-size: var(--lumen-button-font-size);
+  font-weight: var(--lumen-button-font-weight);
+  line-height: 1.25;
+  color: var(--lumen-button-color);
+  background-color: var(--lumen-button-bg);
+  border: 1px solid var(--lumen-button-border);
+  border-radius: var(--lumen-button-radius);
+  cursor: pointer;
+  transition:
+    background-color var(--lumen-transition-fast),
+    border-color var(--lumen-transition-fast),
+    color var(--lumen-transition-fast),
+    opacity var(--lumen-transition-fast);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.lumen-button:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.lumen-button:active:not(:disabled) {
+  filter: brightness(0.9);
+}
+
+.lumen-button:focus-visible {
+  outline: 2px solid var(--lumen-color-primary);
+  outline-offset: 2px;
+}
+
+.lumen-button:disabled,
+.lumen-button[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.lumen-button--full-width {
+  width: 100%;
+}
+
+.lumen-button--loading {
+  position: relative;
+}
+
+.lumen-button__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.lumen-button__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.lumen-button__spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: lumen-button-spin 0.6s linear infinite;
+}
+
+@keyframes lumen-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Primary (default tokens) */
+.lumen-button--primary {
+  --lumen-button-bg: var(--lumen-color-primary);
+  --lumen-button-color: #ffffff;
+  --lumen-button-border: transparent;
+}
+
+/* Secondary */
+.lumen-button--secondary {
+  --lumen-button-bg: var(--lumen-color-secondary);
+  --lumen-button-color: #ffffff;
+  --lumen-button-border: transparent;
+}
+
+/* Outline */
+.lumen-button--outline {
+  --lumen-button-bg: transparent;
+  --lumen-button-color: var(--lumen-color-primary);
+  --lumen-button-border: var(--lumen-color-primary);
+}
+
+.lumen-button--outline:hover:not(:disabled) {
+  --lumen-button-bg: color-mix(in srgb, var(--lumen-color-primary) 8%, transparent);
+}
+
+/* Ghost */
+.lumen-button--ghost {
+  --lumen-button-bg: transparent;
+  --lumen-button-color: var(--lumen-color-text);
+  --lumen-button-border: transparent;
+}
+
+.lumen-button--ghost:hover:not(:disabled) {
+  --lumen-button-bg: var(--lumen-color-background);
+}
+
+/* Destructive */
+.lumen-button--destructive {
+  --lumen-button-bg: var(--lumen-color-danger);
+  --lumen-button-color: #ffffff;
+  --lumen-button-border: transparent;
+}

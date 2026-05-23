@@ -1,0 +1,43 @@
+.lumen-toolbar {
+  display: inline-flex;
+  gap: var(--lumen-spacing-2);
+  align-items: center;
+  padding: var(--lumen-spacing-2);
+  font-family: var(--lumen-font-family);
+  background: var(--lumen-color-surface);
+  border: 1px solid var(--lumen-color-border);
+  border-radius: var(--lumen-radius-md);
+}
+
+.lumen-toolbar--vertical {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.lumen-toolbar__group {
+  display: inline-flex;
+  gap: var(--lumen-spacing-1);
+  align-items: center;
+}
+
+.lumen-toolbar--vertical .lumen-toolbar__group {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.lumen-toolbar__separator {
+  flex: none;
+  margin: 0;
+  border: 0;
+  background: var(--lumen-color-border);
+}
+
+.lumen-toolbar__separator--vertical {
+  width: 1px;
+  align-self: stretch;
+}
+
+.lumen-toolbar__separator--horizontal {
+  height: 1px;
+  width: 100%;
+}

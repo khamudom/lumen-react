@@ -1,0 +1,192 @@
+# Lumen React
+
+A reusable React + TypeScript component library for building dashboards and applications. Components are accessible by default, themeable via CSS variables, and tree-shakeable.
+
+**Package:** `@lumen-ui/react`
+
+## Installation
+
+```bash
+npm install @lumen-ui/react
+```
+
+Peer dependencies:
+
+```bash
+npm install react react-dom
+```
+
+## Usage
+
+Import components from the package entry:
+
+```tsx
+import { Button, Input, Card, CardHeader, CardTitle, CardContent, Badge } from "@lumen-ui/react";
+import "@lumen-ui/react/styles.css";
+```
+
+### Button
+
+```tsx
+<Button variant="primary" onClick={() => console.log("clicked")}>
+  Save changes
+</Button>
+
+<Button variant="destructive" loading>
+  Deleting…
+</Button>
+
+<Button variant="outline" icon={<span>→</span>} iconPosition="end" fullWidth>
+  Continue
+</Button>
+```
+
+### Input
+
+```tsx
+<Input
+  label="Email"
+  type="email"
+  placeholder="you@example.com"
+  helperText="We'll never share your email."
+/>
+
+<Input label="Email" error="Enter a valid email address." />
+```
+
+### Card
+
+```tsx
+<Card>
+  <CardHeader>
+    <CardTitle>Revenue</CardTitle>
+    <CardDescription>Last 30 days</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>$12,400</p>
+  </CardContent>
+</Card>
+```
+
+### Badge
+
+```tsx
+<Badge variant="success">Active</Badge>
+```
+
+## Theming
+
+Global design tokens live in `tokens.css` and are applied when you import the library (or `styles.css` in consuming apps).
+
+Override globally:
+
+```css
+:root {
+  --lumen-color-primary: #7c3aed;
+  --lumen-color-background: #0f172a;
+  --lumen-color-text: #f8fafc;
+}
+```
+
+Override a single component instance:
+
+```css
+.my-custom-button {
+  --lumen-button-bg: #000;
+  --lumen-button-color: #fff;
+}
+```
+
+```tsx
+<Button className="my-custom-button">Custom</Button>
+```
+
+## Project structure
+
+```
+src/
+  components/
+    Button/
+    Input/
+    Card/
+    Badge/
+  styles/
+    tokens.css      # Design tokens
+    globals.css     # Base utilities
+  hooks/
+  utils/
+  index.ts          # Barrel exports
+```
+
+Each component folder contains:
+
+- `Component.tsx` — implementation
+- `Component.css` — plain CSS with `.lumen-*` classes
+- `Component.stories.tsx` — Storybook docs
+- `Component.test.tsx` — Vitest tests
+- `index.ts` — public exports
+
+## Scripts
+
+| Command | Description |
+|--------|-------------|
+| `npm run dev` | Build library in watch mode |
+| `npm run build` | Typecheck + production build to `dist/` |
+| `npm run storybook` | Start Storybook on port 6006 |
+| `npm run build-storybook` | Static Storybook build |
+| `npm run test` | Run Vitest component tests |
+| `npm run lint` | ESLint |
+| `npm run format` | Prettier write |
+
+## Local development
+
+```bash
+git clone <repository-url>
+cd lumen-react
+npm install
+npm run storybook
+```
+
+### Linking into another app
+
+From this package directory:
+
+```bash
+npm run build
+npm link
+```
+
+In your consumer app:
+
+```bash
+npm link @lumen-ui/react
+```
+
+Import styles in the consumer (if not bundled automatically):
+
+```tsx
+import "@lumen-ui/react/styles.css";
+```
+
+## Publishing
+
+1. Update version in `package.json`
+2. Run `npm run build` and `npm run test`
+3. Log in to npm: `npm login`
+4. Publish: `npm publish --access public`
+
+The `files` field publishes only `dist/`. React and React DOM remain peer dependencies.
+
+## Tech stack
+
+- React 18/19
+- TypeScript
+- Vite (library mode)
+- Storybook
+- Plain CSS + CSS variables
+- ESLint + Prettier
+- Vitest + Testing Library
+
+## License
+
+MIT

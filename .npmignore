@@ -1,0 +1,14 @@
+src
+.storybook
+*.config.*
+tsconfig*.json
+eslint.config.js
+.prettierrc
+.prettierignore
+vitest.setup.ts
+**/*.stories.tsx
+**/*.test.tsx
+**/*.test.ts
+coverage
+storybook-static
+node_modules

@@ -1,0 +1,84 @@
+:root {
+  /* Colors */
+  --lumen-color-primary: #2563eb;
+  --lumen-color-secondary: #64748b;
+  --lumen-color-surface: #ffffff;
+  --lumen-color-background: #f8fafc;
+  --lumen-color-border: #e2e8f0;
+  --lumen-color-text: #0f172a;
+  --lumen-color-text-secondary: #64748b;
+  --lumen-color-danger: #dc2626;
+  --lumen-color-success: #16a34a;
+  --lumen-color-warning: #d97706;
+
+  /* Spacing */
+  --lumen-spacing-1: 0.25rem;
+  --lumen-spacing-2: 0.5rem;
+  --lumen-spacing-3: 0.75rem;
+  --lumen-spacing-4: 1rem;
+  --lumen-spacing-5: 1.25rem;
+  --lumen-spacing-6: 1.5rem;
+
+  /* Typography */
+  --lumen-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --lumen-font-size-xs: 0.75rem;
+  --lumen-font-size-sm: 0.875rem;
+  --lumen-font-size-md: 1rem;
+  --lumen-font-size-lg: 1.125rem;
+  --lumen-font-size-xl: 1.25rem;
+
+  /* Radius */
+  --lumen-radius-sm: 0.25rem;
+  --lumen-radius-md: 0.375rem;
+  --lumen-radius-lg: 0.5rem;
+
+  /* Shadows */
+  --lumen-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --lumen-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --lumen-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --lumen-transition-fast: 150ms ease;
+  --lumen-transition-normal: 250ms ease;
+
+  /* Z-index */
+  --lumen-z-dropdown: 1000;
+  --lumen-z-modal: 1100;
+  --lumen-z-tooltip: 1200;
+
+  /* Button component tokens */
+  --lumen-button-bg: var(--lumen-color-primary);
+  --lumen-button-color: #ffffff;
+  --lumen-button-border: transparent;
+  --lumen-button-radius: var(--lumen-radius-md);
+  --lumen-button-padding: var(--lumen-spacing-2) var(--lumen-spacing-4);
+  --lumen-button-font-size: var(--lumen-font-size-sm);
+  --lumen-button-font-weight: 500;
+  --lumen-button-gap: var(--lumen-spacing-2);
+  --lumen-button-min-height: 2.25rem;
+
+  /* Input component tokens */
+  --lumen-input-bg: var(--lumen-color-surface);
+  --lumen-input-color: var(--lumen-color-text);
+  --lumen-input-border: var(--lumen-color-border);
+  --lumen-input-radius: var(--lumen-radius-md);
+  --lumen-input-padding: var(--lumen-spacing-2) var(--lumen-spacing-3);
+  --lumen-input-font-size: var(--lumen-font-size-sm);
+  --lumen-input-min-height: 2.25rem;
+
+  /* Card component tokens */
+  --lumen-card-bg: var(--lumen-color-surface);
+  --lumen-card-border: var(--lumen-color-border);
+  --lumen-card-radius: var(--lumen-radius-lg);
+  --lumen-card-padding: var(--lumen-spacing-4);
+  --lumen-card-shadow: var(--lumen-shadow-sm);
+
+  /* Badge component tokens */
+  --lumen-badge-bg: var(--lumen-color-background);
+  --lumen-badge-color: var(--lumen-color-text);
+  --lumen-badge-border: var(--lumen-color-border);
+  --lumen-badge-radius: var(--lumen-radius-sm);
+  --lumen-badge-padding: var(--lumen-spacing-1) var(--lumen-spacing-2);
+  --lumen-badge-font-size: var(--lumen-font-size-xs);
+  --lumen-badge-font-weight: 500;
+}

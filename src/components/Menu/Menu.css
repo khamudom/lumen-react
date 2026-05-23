@@ -1,0 +1,43 @@
+.lumen-menu {
+  display: grid;
+  gap: var(--lumen-spacing-1);
+  min-width: 12rem;
+  padding: var(--lumen-spacing-1);
+  margin: 0;
+  font-family: var(--lumen-font-family);
+  list-style: none;
+  background: var(--lumen-color-surface);
+  border: 1px solid var(--lumen-color-border);
+  border-radius: var(--lumen-radius-md);
+  box-shadow: var(--lumen-shadow-sm);
+}
+
+.lumen-menu__item-shell {
+  margin: 0;
+}
+
+.lumen-menu__item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 2rem;
+  padding: var(--lumen-spacing-2) var(--lumen-spacing-3);
+  font: inherit;
+  font-size: var(--lumen-font-size-sm);
+  color: var(--lumen-color-text);
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-radius: var(--lumen-radius-sm);
+  cursor: pointer;
+}
+
+.lumen-menu__item:hover,
+.lumen-menu__item:focus-visible {
+  background: var(--lumen-color-background);
+}
+
+.lumen-menu__item:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
