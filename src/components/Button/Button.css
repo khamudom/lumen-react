@@ -24,21 +24,23 @@
 }
 
 .lumen-button:hover:not(:disabled) {
-  filter: brightness(0.95);
+  background-color: var(--lumen-button-hover-bg, var(--lumen-button-bg));
+  color: var(--lumen-button-hover-color, var(--lumen-button-color));
+  border-color: var(--lumen-button-hover-border, var(--lumen-button-border));
 }
 
 .lumen-button:active:not(:disabled) {
-  filter: brightness(0.9);
+  opacity: 0.9;
 }
 
 .lumen-button:focus-visible {
-  outline: 2px solid var(--lumen-color-primary);
-  outline-offset: 2px;
+  outline: none;
+  box-shadow: var(--lumen-ring-shadow);
 }
 
 .lumen-button:disabled,
 .lumen-button[aria-disabled="true"] {
-  opacity: 0.55;
+  opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -79,29 +81,29 @@
   }
 }
 
-/* Primary (default tokens) */
+/* Primary (default) */
 .lumen-button--primary {
   --lumen-button-bg: var(--lumen-color-primary);
-  --lumen-button-color: #ffffff;
+  --lumen-button-color: #fafafa;
   --lumen-button-border: transparent;
+  --lumen-button-hover-bg: color-mix(in srgb, var(--lumen-color-primary) 90%, transparent);
 }
 
 /* Secondary */
 .lumen-button--secondary {
   --lumen-button-bg: var(--lumen-color-secondary);
-  --lumen-button-color: #ffffff;
+  --lumen-button-color: var(--lumen-color-text);
   --lumen-button-border: transparent;
+  --lumen-button-hover-bg: color-mix(in srgb, var(--lumen-color-secondary) 80%, transparent);
 }
 
 /* Outline */
 .lumen-button--outline {
-  --lumen-button-bg: transparent;
-  --lumen-button-color: var(--lumen-color-primary);
-  --lumen-button-border: var(--lumen-color-primary);
-}
-
-.lumen-button--outline:hover:not(:disabled) {
-  --lumen-button-bg: color-mix(in srgb, var(--lumen-color-primary) 8%, transparent);
+  --lumen-button-bg: var(--lumen-color-background);
+  --lumen-button-color: var(--lumen-color-text);
+  --lumen-button-border: var(--lumen-color-border);
+  --lumen-button-hover-bg: var(--lumen-color-muted);
+  --lumen-button-hover-color: var(--lumen-color-text);
 }
 
 /* Ghost */
@@ -109,15 +111,14 @@
   --lumen-button-bg: transparent;
   --lumen-button-color: var(--lumen-color-text);
   --lumen-button-border: transparent;
-}
-
-.lumen-button--ghost:hover:not(:disabled) {
-  --lumen-button-bg: var(--lumen-color-background);
+  --lumen-button-hover-bg: var(--lumen-color-muted);
+  --lumen-button-hover-color: var(--lumen-color-text);
 }
 
 /* Destructive */
 .lumen-button--destructive {
   --lumen-button-bg: var(--lumen-color-danger);
-  --lumen-button-color: #ffffff;
+  --lumen-button-color: #fafafa;
   --lumen-button-border: transparent;
+  --lumen-button-hover-bg: color-mix(in srgb, var(--lumen-color-danger) 90%, transparent);
 }

@@ -1,0 +1,16 @@
+.lumen-progress {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 0.5rem;
+  background: var(--lumen-color-secondary);
+  border-radius: var(--lumen-radius-full);
+}
+
+.lumen-progress__indicator {
+  width: 100%;
+  height: 100%;
+  background: var(--lumen-color-primary);
+  border-radius: var(--lumen-radius-full);
+  transition: transform var(--lumen-transition-normal);
+}

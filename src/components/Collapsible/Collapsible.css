@@ -1,0 +1,33 @@
+.lumen-collapsible {
+  width: 100%;
+  font-family: var(--lumen-font-family);
+}
+
+.lumen-collapsible__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lumen-spacing-2);
+  font: inherit;
+  font-size: var(--lumen-font-size-sm);
+  font-weight: 500;
+  color: var(--lumen-color-text);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.lumen-collapsible__trigger:hover {
+  text-decoration: underline;
+}
+
+.lumen-collapsible__trigger:focus-visible {
+  outline: none;
+  box-shadow: var(--lumen-ring-shadow);
+}
+
+.lumen-collapsible__content {
+  padding-top: var(--lumen-spacing-2);
+  font-size: var(--lumen-font-size-sm);
+  line-height: var(--lumen-line-height);
+  color: var(--lumen-color-text-secondary);
+}

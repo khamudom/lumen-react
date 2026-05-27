@@ -1,0 +1,43 @@
+.lumen-alert {
+  position: relative;
+  display: grid;
+  gap: var(--lumen-spacing-1);
+  width: 100%;
+  padding: var(--lumen-spacing-4);
+  font-family: var(--lumen-font-family);
+  color: var(--lumen-color-text);
+  background: var(--lumen-color-background);
+  border: 1px solid var(--lumen-color-border);
+  border-radius: var(--lumen-radius-lg);
+}
+
+.lumen-alert--destructive {
+  color: var(--lumen-color-danger);
+  border-color: color-mix(in srgb, var(--lumen-color-danger) 40%, var(--lumen-color-border));
+}
+
+.lumen-alert--destructive .lumen-alert__description {
+  color: color-mix(in srgb, var(--lumen-color-danger) 85%, var(--lumen-color-text));
+}
+
+.lumen-alert__title {
+  margin: 0;
+  font-size: var(--lumen-font-size-sm);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.lumen-alert__description {
+  font-size: var(--lumen-font-size-sm);
+  line-height: var(--lumen-line-height);
+  color: var(--lumen-color-text-secondary);
+}
+
+.lumen-alert__description > :first-child {
+  margin-top: 0;
+}
+
+.lumen-alert__description > :last-child {
+  margin-bottom: 0;
+}

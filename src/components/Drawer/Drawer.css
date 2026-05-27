@@ -8,7 +8,7 @@
 .lumen-drawer__overlay {
   position: absolute;
   inset: 0;
-  background: rgb(15 23 42 / 0.5);
+  background: rgb(0 0 0 / 0.8);
 }
 
 .lumen-drawer {
@@ -20,7 +20,8 @@
   margin: 0;
   padding: var(--lumen-spacing-6);
   color: var(--lumen-color-text);
-  background: var(--lumen-color-surface);
+  background: var(--lumen-color-background);
+  border: 1px solid var(--lumen-color-border);
   box-shadow: var(--lumen-shadow-lg);
 }
 
@@ -33,10 +34,12 @@
 
 .lumen-drawer--left {
   left: 0;
+  border-right: 1px solid var(--lumen-color-border);
 }
 
 .lumen-drawer--right {
   right: 0;
+  border-left: 1px solid var(--lumen-color-border);
 }
 
 .lumen-drawer--top,
@@ -48,38 +51,46 @@
 
 .lumen-drawer--top {
   top: 0;
+  border-bottom: 1px solid var(--lumen-color-border);
 }
 
 .lumen-drawer--bottom {
   bottom: 0;
+  border-top: 1px solid var(--lumen-color-border);
 }
 
 .lumen-drawer__close {
   position: absolute;
-  top: var(--lumen-spacing-3);
-  right: var(--lumen-spacing-3);
+  top: var(--lumen-spacing-4);
+  right: var(--lumen-spacing-4);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   font: inherit;
-  font-size: var(--lumen-font-size-lg);
+  font-size: var(--lumen-font-size-sm);
   color: var(--lumen-color-text-secondary);
   background: transparent;
   border: 0;
-  border-radius: var(--lumen-radius-md);
+  border-radius: var(--lumen-radius-sm);
   cursor: pointer;
+  opacity: 0.7;
+  transition: opacity var(--lumen-transition-fast);
 }
 
 .lumen-drawer__close:hover {
-  color: var(--lumen-color-text);
-  background: var(--lumen-color-background);
+  opacity: 1;
+}
+
+.lumen-drawer__close:focus-visible {
+  outline: none;
+  box-shadow: var(--lumen-ring-shadow);
 }
 
 .lumen-drawer__header {
   display: grid;
-  gap: var(--lumen-spacing-1);
+  gap: var(--lumen-spacing-2);
 }
 
 .lumen-drawer__heading,
@@ -88,17 +99,21 @@
 }
 
 .lumen-drawer__heading {
-  padding-right: var(--lumen-spacing-5);
-  font-size: var(--lumen-font-size-xl);
-  line-height: 1.25;
+  padding-right: var(--lumen-spacing-6);
+  font-size: var(--lumen-font-size-lg);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
 }
 
 .lumen-drawer__description {
   color: var(--lumen-color-text-secondary);
   font-size: var(--lumen-font-size-sm);
+  line-height: var(--lumen-line-height);
 }
 
 .lumen-drawer__body {
   overflow: auto;
   font-size: var(--lumen-font-size-sm);
+  line-height: var(--lumen-line-height);
 }

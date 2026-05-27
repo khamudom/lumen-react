@@ -1,10 +1,10 @@
 .lumen-toolbar {
   display: inline-flex;
-  gap: var(--lumen-spacing-2);
+  gap: var(--lumen-spacing-1);
   align-items: center;
-  padding: var(--lumen-spacing-2);
+  padding: var(--lumen-spacing-1);
   font-family: var(--lumen-font-family);
-  background: var(--lumen-color-surface);
+  background: var(--lumen-color-background);
   border: 1px solid var(--lumen-color-border);
   border-radius: var(--lumen-radius-md);
 }

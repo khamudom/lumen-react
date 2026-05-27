@@ -1,0 +1,14 @@
+.lumen-separator {
+  flex-shrink: 0;
+  background: var(--lumen-color-border);
+}
+
+.lumen-separator--horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.lumen-separator--vertical {
+  width: 1px;
+  align-self: stretch;
+}

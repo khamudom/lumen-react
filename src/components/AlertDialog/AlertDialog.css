@@ -1,0 +1,115 @@
+.lumen-alert-dialog__portal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--lumen-z-modal);
+  display: grid;
+  place-items: center;
+  padding: var(--lumen-spacing-4);
+  font-family: var(--lumen-font-family);
+}
+
+.lumen-alert-dialog__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.8);
+}
+
+.lumen-alert-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 32rem);
+  margin: 0;
+  padding: var(--lumen-spacing-6);
+  color: var(--lumen-color-text);
+  background: var(--lumen-color-surface);
+  border: 1px solid var(--lumen-color-border);
+  border-radius: var(--lumen-radius-lg);
+  box-shadow: var(--lumen-shadow-lg);
+}
+
+.lumen-alert-dialog__header {
+  display: grid;
+  gap: var(--lumen-spacing-2);
+  margin-bottom: var(--lumen-spacing-4);
+}
+
+.lumen-alert-dialog__title,
+.lumen-alert-dialog__description {
+  margin: 0;
+}
+
+.lumen-alert-dialog__title {
+  font-size: var(--lumen-font-size-lg);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.lumen-alert-dialog__description {
+  font-size: var(--lumen-font-size-sm);
+  line-height: var(--lumen-line-height);
+  color: var(--lumen-color-text-secondary);
+}
+
+.lumen-alert-dialog__body {
+  margin-bottom: var(--lumen-spacing-4);
+  font-size: var(--lumen-font-size-sm);
+  line-height: var(--lumen-line-height);
+}
+
+.lumen-alert-dialog__footer {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: var(--lumen-spacing-2);
+  justify-content: flex-start;
+}
+
+.lumen-alert-dialog__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--lumen-button-min-height);
+  padding: var(--lumen-button-padding);
+  font: inherit;
+  font-size: var(--lumen-button-font-size);
+  font-weight: var(--lumen-button-font-weight);
+  border: 1px solid transparent;
+  border-radius: var(--lumen-button-radius);
+  cursor: pointer;
+  transition:
+    background-color var(--lumen-transition-fast),
+    color var(--lumen-transition-fast);
+}
+
+.lumen-alert-dialog__button:focus-visible {
+  outline: none;
+  box-shadow: var(--lumen-ring-shadow);
+}
+
+.lumen-alert-dialog__button--cancel {
+  color: var(--lumen-color-text);
+  background: var(--lumen-color-background);
+  border-color: var(--lumen-color-border);
+}
+
+.lumen-alert-dialog__button--cancel:hover {
+  background: var(--lumen-color-muted);
+}
+
+.lumen-alert-dialog__button--action {
+  color: #fafafa;
+  background: var(--lumen-color-primary);
+}
+
+.lumen-alert-dialog__button--action:hover {
+  background: color-mix(in srgb, var(--lumen-color-primary) 90%, transparent);
+}
+
+.lumen-alert-dialog__button--destructive {
+  color: #fafafa;
+  background: var(--lumen-color-danger);
+}
+
+.lumen-alert-dialog__button--destructive:hover {
+  background: color-mix(in srgb, var(--lumen-color-danger) 90%, transparent);
+}

@@ -14,11 +14,14 @@
   font-size: var(--lumen-button-font-size);
   font-weight: var(--lumen-button-font-weight);
   color: var(--lumen-color-text);
-  background: var(--lumen-color-surface);
+  background: var(--lumen-color-background);
   border: 1px solid var(--lumen-color-border);
   border-radius: var(--lumen-radius-md);
   cursor: pointer;
   list-style: none;
+  transition:
+    background-color var(--lumen-transition-fast),
+    color var(--lumen-transition-fast);
 }
 
 .lumen-dropdown__trigger::-webkit-details-marker {
@@ -26,16 +29,23 @@
 }
 
 .lumen-dropdown__trigger:hover {
-  background: var(--lumen-color-background);
+  background: var(--lumen-color-muted);
+  color: var(--lumen-color-text);
+}
+
+.lumen-dropdown__trigger:focus-visible {
+  outline: none;
+  box-shadow: var(--lumen-ring-shadow);
 }
 
 .lumen-dropdown__content {
   position: absolute;
   top: calc(100% + var(--lumen-spacing-1));
   z-index: var(--lumen-z-dropdown);
-  min-width: 12rem;
+  min-width: 8rem;
   padding: var(--lumen-spacing-1);
   background: var(--lumen-color-surface);
+  color: var(--lumen-color-text);
   border: 1px solid var(--lumen-color-border);
   border-radius: var(--lumen-radius-md);
   box-shadow: var(--lumen-shadow-md);
@@ -54,7 +64,7 @@
   align-items: center;
   width: 100%;
   min-height: 2rem;
-  padding: var(--lumen-spacing-2) var(--lumen-spacing-3);
+  padding: var(--lumen-spacing-2) var(--lumen-spacing-2);
   font: inherit;
   font-size: var(--lumen-font-size-sm);
   color: var(--lumen-color-text);
@@ -63,11 +73,16 @@
   border: 0;
   border-radius: var(--lumen-radius-sm);
   cursor: pointer;
+  transition:
+    background-color var(--lumen-transition-fast),
+    color var(--lumen-transition-fast);
 }
 
 .lumen-dropdown__item:hover,
 .lumen-dropdown__item:focus-visible {
-  background: var(--lumen-color-background);
+  background: var(--lumen-color-muted);
+  color: var(--lumen-color-text);
+  outline: none;
 }
 
 .lumen-dropdown__item:disabled {

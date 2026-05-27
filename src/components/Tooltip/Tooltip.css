@@ -13,14 +13,14 @@
   z-index: var(--lumen-z-tooltip);
   width: max-content;
   max-width: 16rem;
-  padding: var(--lumen-spacing-2) var(--lumen-spacing-3);
+  padding: 0.375rem 0.75rem;
   font-size: var(--lumen-font-size-xs);
   line-height: 1.4;
-  color: #ffffff;
+  color: #fafafa;
   pointer-events: none;
   visibility: hidden;
-  background: var(--lumen-color-text);
-  border-radius: var(--lumen-radius-sm);
+  background: var(--lumen-color-primary);
+  border-radius: var(--lumen-radius-md);
   opacity: 0;
   transition:
     opacity var(--lumen-transition-fast),

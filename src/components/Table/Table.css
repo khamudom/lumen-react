@@ -1,0 +1,63 @@
+.lumen-table__wrapper {
+  width: 100%;
+  overflow: auto;
+}
+
+.lumen-table {
+  width: 100%;
+  font-family: var(--lumen-font-family);
+  font-size: var(--lumen-font-size-sm);
+  caption-side: bottom;
+  border-collapse: collapse;
+}
+
+.lumen-table__caption {
+  margin-top: var(--lumen-spacing-4);
+  color: var(--lumen-color-text-secondary);
+  text-align: left;
+}
+
+.lumen-table__header tr {
+  border-bottom: 1px solid var(--lumen-color-border);
+}
+
+.lumen-table__footer {
+  background: var(--lumen-color-muted);
+  font-weight: 500;
+}
+
+.lumen-table__footer tr {
+  border-top: 1px solid var(--lumen-color-border);
+}
+
+.lumen-table__row {
+  border-bottom: 1px solid var(--lumen-color-border);
+  transition: background-color var(--lumen-transition-fast);
+}
+
+.lumen-table__row:last-child {
+  border-bottom: 0;
+}
+
+.lumen-table__body .lumen-table__row:hover {
+  background: var(--lumen-color-muted);
+}
+
+.lumen-table__head {
+  height: 3rem;
+  padding: 0 var(--lumen-spacing-4);
+  font-weight: 500;
+  color: var(--lumen-color-text-secondary);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.lumen-table__cell {
+  padding: var(--lumen-spacing-4);
+  vertical-align: middle;
+}
+
+.lumen-table__head:has([role="checkbox"]),
+.lumen-table__cell:has([role="checkbox"]) {
+  padding-right: 0;
+}

@@ -32,9 +32,15 @@
   cursor: pointer;
 }
 
+.lumen-radio-group__input:focus-visible {
+  outline: none;
+  box-shadow: var(--lumen-ring-shadow);
+}
+
 .lumen-radio-group__label {
   font-size: var(--lumen-font-size-sm);
   font-weight: 500;
+  line-height: 1;
   color: var(--lumen-color-text);
   cursor: pointer;
 }
@@ -42,12 +48,12 @@
 .lumen-radio-group__helper {
   grid-column: 2;
   margin: var(--lumen-spacing-1) 0 0;
-  font-size: var(--lumen-font-size-xs);
+  font-size: var(--lumen-font-size-sm);
   color: var(--lumen-color-text-secondary);
 }
 
 .lumen-radio-group__input:disabled,
 .lumen-radio-group--disabled {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 0.5;
 }

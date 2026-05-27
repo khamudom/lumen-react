@@ -1,15 +1,17 @@
 :root {
-  /* Colors */
-  --lumen-color-primary: #2563eb;
-  --lumen-color-secondary: #64748b;
+  /* Colors (zinc-inspired palette) */
+  --lumen-color-primary: #18181b;
+  --lumen-color-secondary: #f4f4f5;
   --lumen-color-surface: #ffffff;
-  --lumen-color-background: #f8fafc;
-  --lumen-color-border: #e2e8f0;
-  --lumen-color-text: #0f172a;
-  --lumen-color-text-secondary: #64748b;
-  --lumen-color-danger: #dc2626;
+  --lumen-color-background: #ffffff;
+  --lumen-color-border: #e4e4e7;
+  --lumen-color-text: #09090b;
+  --lumen-color-text-secondary: #71717a;
+  --lumen-color-muted: #f4f4f5;
+  --lumen-color-danger: #ef4444;
   --lumen-color-success: #16a34a;
-  --lumen-color-warning: #d97706;
+  --lumen-color-warning: #f59e0b;
+  --lumen-color-ring: #18181b;
 
   /* Spacing */
   --lumen-spacing-1: 0.25rem;
@@ -20,17 +22,22 @@
   --lumen-spacing-6: 1.5rem;
 
   /* Typography */
-  --lumen-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --lumen-font-family:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
   --lumen-font-size-xs: 0.75rem;
   --lumen-font-size-sm: 0.875rem;
   --lumen-font-size-md: 1rem;
   --lumen-font-size-lg: 1.125rem;
   --lumen-font-size-xl: 1.25rem;
+  --lumen-line-height: 1.5;
 
   /* Radius */
-  --lumen-radius-sm: 0.25rem;
-  --lumen-radius-md: 0.375rem;
-  --lumen-radius-lg: 0.5rem;
+  --lumen-radius-base: 0.5rem;
+  --lumen-radius-sm: calc(var(--lumen-radius-base) - 4px);
+  --lumen-radius-md: calc(var(--lumen-radius-base) - 2px);
+  --lumen-radius-lg: var(--lumen-radius-base);
+  --lumen-radius-full: 9999px;
 
   /* Shadows */
   --lumen-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -38,17 +45,23 @@
   --lumen-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 
   /* Transitions */
-  --lumen-transition-fast: 150ms ease;
-  --lumen-transition-normal: 250ms ease;
+  --lumen-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --lumen-transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Focus ring */
+  --lumen-ring-width: 2px;
+  --lumen-ring-offset-width: 2px;
+  --lumen-ring-shadow: 0 0 0 var(--lumen-ring-offset-width) var(--lumen-color-background),
+    0 0 0 calc(var(--lumen-ring-offset-width) + var(--lumen-ring-width)) var(--lumen-color-ring);
 
   /* Z-index */
-  --lumen-z-dropdown: 1000;
-  --lumen-z-modal: 1100;
-  --lumen-z-tooltip: 1200;
+  --lumen-z-dropdown: 50;
+  --lumen-z-modal: 50;
+  --lumen-z-tooltip: 50;
 
   /* Button component tokens */
   --lumen-button-bg: var(--lumen-color-primary);
-  --lumen-button-color: #ffffff;
+  --lumen-button-color: #fafafa;
   --lumen-button-border: transparent;
   --lumen-button-radius: var(--lumen-radius-md);
   --lumen-button-padding: var(--lumen-spacing-2) var(--lumen-spacing-4);
@@ -58,7 +71,7 @@
   --lumen-button-min-height: 2.25rem;
 
   /* Input component tokens */
-  --lumen-input-bg: var(--lumen-color-surface);
+  --lumen-input-bg: var(--lumen-color-background);
   --lumen-input-color: var(--lumen-color-text);
   --lumen-input-border: var(--lumen-color-border);
   --lumen-input-radius: var(--lumen-radius-md);
@@ -70,15 +83,32 @@
   --lumen-card-bg: var(--lumen-color-surface);
   --lumen-card-border: var(--lumen-color-border);
   --lumen-card-radius: var(--lumen-radius-lg);
-  --lumen-card-padding: var(--lumen-spacing-4);
+  --lumen-card-padding: var(--lumen-spacing-6);
   --lumen-card-shadow: var(--lumen-shadow-sm);
 
   /* Badge component tokens */
-  --lumen-badge-bg: var(--lumen-color-background);
-  --lumen-badge-color: var(--lumen-color-text);
-  --lumen-badge-border: var(--lumen-color-border);
-  --lumen-badge-radius: var(--lumen-radius-sm);
-  --lumen-badge-padding: var(--lumen-spacing-1) var(--lumen-spacing-2);
+  --lumen-badge-bg: var(--lumen-color-primary);
+  --lumen-badge-color: #fafafa;
+  --lumen-badge-border: transparent;
+  --lumen-badge-radius: var(--lumen-radius-full);
+  --lumen-badge-padding: 0.125rem 0.625rem;
   --lumen-badge-font-size: var(--lumen-font-size-xs);
-  --lumen-badge-font-weight: 500;
+  --lumen-badge-font-weight: 600;
+}
+
+.lumen-dark {
+  --lumen-color-primary: #fafafa;
+  --lumen-color-secondary: #27272a;
+  --lumen-color-surface: #09090b;
+  --lumen-color-background: #09090b;
+  --lumen-color-border: #27272a;
+  --lumen-color-text: #fafafa;
+  --lumen-color-text-secondary: #a1a1aa;
+  --lumen-color-muted: #27272a;
+  --lumen-color-danger: #7f1d1d;
+  --lumen-color-success: #22c55e;
+  --lumen-color-warning: #f59e0b;
+  --lumen-color-ring: #d4d4d8;
+  --lumen-button-color: #18181b;
+  --lumen-badge-color: #18181b;
 }

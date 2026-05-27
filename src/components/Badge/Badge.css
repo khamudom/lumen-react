@@ -12,42 +12,45 @@
   border: 1px solid var(--lumen-badge-border);
   border-radius: var(--lumen-badge-radius);
   white-space: nowrap;
+  transition:
+    background-color var(--lumen-transition-fast),
+    color var(--lumen-transition-fast);
 }
 
 .lumen-badge--default {
-  --lumen-badge-bg: var(--lumen-color-background);
-  --lumen-badge-color: var(--lumen-color-text);
-  --lumen-badge-border: var(--lumen-color-border);
+  --lumen-badge-bg: var(--lumen-color-primary);
+  --lumen-badge-color: #fafafa;
+  --lumen-badge-border: transparent;
 }
 
 .lumen-badge--primary {
-  --lumen-badge-bg: color-mix(in srgb, var(--lumen-color-primary) 12%, transparent);
-  --lumen-badge-color: var(--lumen-color-primary);
-  --lumen-badge-border: color-mix(in srgb, var(--lumen-color-primary) 25%, transparent);
+  --lumen-badge-bg: var(--lumen-color-primary);
+  --lumen-badge-color: #fafafa;
+  --lumen-badge-border: transparent;
 }
 
 .lumen-badge--secondary {
-  --lumen-badge-bg: color-mix(in srgb, var(--lumen-color-secondary) 12%, transparent);
-  --lumen-badge-color: var(--lumen-color-secondary);
-  --lumen-badge-border: color-mix(in srgb, var(--lumen-color-secondary) 25%, transparent);
+  --lumen-badge-bg: var(--lumen-color-secondary);
+  --lumen-badge-color: var(--lumen-color-text);
+  --lumen-badge-border: transparent;
 }
 
 .lumen-badge--success {
-  --lumen-badge-bg: color-mix(in srgb, var(--lumen-color-success) 12%, transparent);
+  --lumen-badge-bg: color-mix(in srgb, var(--lumen-color-success) 15%, transparent);
   --lumen-badge-color: var(--lumen-color-success);
-  --lumen-badge-border: color-mix(in srgb, var(--lumen-color-success) 25%, transparent);
+  --lumen-badge-border: transparent;
 }
 
 .lumen-badge--warning {
-  --lumen-badge-bg: color-mix(in srgb, var(--lumen-color-warning) 12%, transparent);
+  --lumen-badge-bg: color-mix(in srgb, var(--lumen-color-warning) 15%, transparent);
   --lumen-badge-color: var(--lumen-color-warning);
-  --lumen-badge-border: color-mix(in srgb, var(--lumen-color-warning) 25%, transparent);
+  --lumen-badge-border: transparent;
 }
 
 .lumen-badge--danger {
-  --lumen-badge-bg: color-mix(in srgb, var(--lumen-color-danger) 12%, transparent);
-  --lumen-badge-color: var(--lumen-color-danger);
-  --lumen-badge-border: color-mix(in srgb, var(--lumen-color-danger) 25%, transparent);
+  --lumen-badge-bg: var(--lumen-color-danger);
+  --lumen-badge-color: #fafafa;
+  --lumen-badge-border: transparent;
 }
 
 .lumen-badge--outline {

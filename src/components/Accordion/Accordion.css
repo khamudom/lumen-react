@@ -3,7 +3,7 @@
   font-family: var(--lumen-font-family);
   border: 1px solid var(--lumen-color-border);
   border-radius: var(--lumen-radius-lg);
-  background: var(--lumen-color-surface);
+  background: var(--lumen-color-background);
 }
 
 .lumen-accordion__item + .lumen-accordion__item {
@@ -16,8 +16,9 @@
   justify-content: space-between;
   width: 100%;
   gap: var(--lumen-spacing-3);
-  padding: var(--lumen-spacing-3) var(--lumen-spacing-4);
+  padding: var(--lumen-spacing-4);
   font: inherit;
+  font-size: var(--lumen-font-size-sm);
   font-weight: 500;
   color: var(--lumen-color-text);
   text-align: left;
@@ -25,6 +26,7 @@
   border: 0;
   cursor: pointer;
   list-style: none;
+  transition: text-decoration var(--lumen-transition-fast);
 }
 
 .lumen-accordion__trigger::-webkit-details-marker {
@@ -32,15 +34,23 @@
 }
 
 .lumen-accordion__trigger:hover {
-  background: var(--lumen-color-background);
+  text-decoration: underline;
+}
+
+.lumen-accordion__trigger:focus-visible {
+  outline: none;
+  box-shadow: inset var(--lumen-ring-shadow);
 }
 
 .lumen-accordion__icon {
+  flex-shrink: 0;
+  color: var(--lumen-color-text-secondary);
   transition: transform var(--lumen-transition-fast);
+  transform: rotate(0deg);
 }
 
 .lumen-accordion__item[open] .lumen-accordion__icon {
-  transform: rotate(45deg);
+  transform: rotate(180deg);
 }
 
 .lumen-accordion__content {
@@ -49,4 +59,6 @@
 
 .lumen-accordion__content-inner {
   padding: 0 var(--lumen-spacing-4) var(--lumen-spacing-4);
+  font-size: var(--lumen-font-size-sm);
+  line-height: var(--lumen-line-height);
 }

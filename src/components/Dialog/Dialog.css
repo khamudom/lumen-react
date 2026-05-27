@@ -11,7 +11,7 @@
 .lumen-dialog__overlay {
   position: absolute;
   inset: 0;
-  background: rgb(15 23 42 / 0.5);
+  background: rgb(0 0 0 / 0.8);
 }
 
 .lumen-dialog {
@@ -29,30 +29,36 @@
 
 .lumen-dialog__close {
   position: absolute;
-  top: var(--lumen-spacing-3);
-  right: var(--lumen-spacing-3);
+  top: var(--lumen-spacing-4);
+  right: var(--lumen-spacing-4);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   font: inherit;
-  font-size: var(--lumen-font-size-lg);
+  font-size: var(--lumen-font-size-sm);
   color: var(--lumen-color-text-secondary);
   background: transparent;
   border: 0;
-  border-radius: var(--lumen-radius-md);
+  border-radius: var(--lumen-radius-sm);
   cursor: pointer;
+  opacity: 0.7;
+  transition: opacity var(--lumen-transition-fast);
 }
 
 .lumen-dialog__close:hover {
-  color: var(--lumen-color-text);
-  background: var(--lumen-color-background);
+  opacity: 1;
+}
+
+.lumen-dialog__close:focus-visible {
+  outline: none;
+  box-shadow: var(--lumen-ring-shadow);
 }
 
 .lumen-dialog__header {
   display: grid;
-  gap: var(--lumen-spacing-1);
+  gap: var(--lumen-spacing-2);
   margin-bottom: var(--lumen-spacing-4);
 }
 
@@ -62,16 +68,20 @@
 }
 
 .lumen-dialog__heading {
-  padding-right: var(--lumen-spacing-5);
-  font-size: var(--lumen-font-size-xl);
-  line-height: 1.25;
+  padding-right: var(--lumen-spacing-6);
+  font-size: var(--lumen-font-size-lg);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
 }
 
 .lumen-dialog__description {
   color: var(--lumen-color-text-secondary);
   font-size: var(--lumen-font-size-sm);
+  line-height: var(--lumen-line-height);
 }
 
 .lumen-dialog__body {
   font-size: var(--lumen-font-size-sm);
+  line-height: var(--lumen-line-height);
 }

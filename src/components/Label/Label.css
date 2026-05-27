@@ -1,0 +1,13 @@
+.lumen-label {
+  font-family: var(--lumen-font-family);
+  font-size: var(--lumen-font-size-sm);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--lumen-color-text);
+}
+
+.lumen-label--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

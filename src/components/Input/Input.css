@@ -1,7 +1,7 @@
 .lumen-input-field {
   display: flex;
   flex-direction: column;
-  gap: var(--lumen-spacing-1);
+  gap: var(--lumen-spacing-2);
   width: 100%;
 }
 
@@ -9,6 +9,7 @@
   font-family: var(--lumen-font-family);
   font-size: var(--lumen-font-size-sm);
   font-weight: 500;
+  line-height: 1;
   color: var(--lumen-color-text);
 }
 
@@ -22,6 +23,7 @@
   padding: var(--lumen-input-padding);
   font-family: var(--lumen-font-family);
   font-size: var(--lumen-input-font-size);
+  line-height: var(--lumen-line-height);
   color: var(--lumen-input-color);
   background-color: var(--lumen-input-bg);
   border: 1px solid var(--lumen-input-border);
@@ -35,20 +37,15 @@
   color: var(--lumen-color-text-secondary);
 }
 
-.lumen-input:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--lumen-color-primary) 40%, var(--lumen-input-border));
-}
-
 .lumen-input:focus {
   outline: none;
-  border-color: var(--lumen-color-primary);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--lumen-color-primary) 20%, transparent);
+  border-color: var(--lumen-color-ring);
+  box-shadow: var(--lumen-ring-shadow);
 }
 
 .lumen-input:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
-  background-color: var(--lumen-color-background);
 }
 
 .lumen-input-field--error .lumen-input {
@@ -57,18 +54,21 @@
 
 .lumen-input-field--error .lumen-input:focus {
   border-color: var(--lumen-color-danger);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--lumen-color-danger) 20%, transparent);
+  box-shadow: 0 0 0 var(--lumen-ring-offset-width) var(--lumen-color-background),
+    0 0 0 calc(var(--lumen-ring-offset-width) + var(--lumen-ring-width))
+      var(--lumen-color-danger);
 }
 
 .lumen-input-field__helper {
   margin: 0;
-  font-size: var(--lumen-font-size-xs);
+  font-size: var(--lumen-font-size-sm);
   color: var(--lumen-color-text-secondary);
 }
 
 .lumen-input-field__error {
   margin: 0;
-  font-size: var(--lumen-font-size-xs);
+  font-size: var(--lumen-font-size-sm);
+  font-weight: 500;
   color: var(--lumen-color-danger);
 }
 
