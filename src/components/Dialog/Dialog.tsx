@@ -3,10 +3,14 @@ import {
   forwardRef,
   useEffect,
   useId,
+  useRef,
   type ReactNode,
+  type RefObject,
 } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "../../utils/cn";
+import { mergeRefs } from "../../utils/mergeRefs";
+import { useModalFocus } from "../../utils/useModalFocus";
 import "./Dialog.css";
 
 export interface DialogProps extends DialogHTMLAttributes<HTMLDialogElement> {
@@ -24,6 +28,10 @@ export interface DialogProps extends DialogHTMLAttributes<HTMLDialogElement> {
   hideCloseButton?: boolean;
   /** Prevents closing when the overlay is clicked. */
   disableOverlayClose?: boolean;
+  /** Whether focus returns to the trigger when the dialog closes. @default true */
+  returnFocus?: boolean;
+  /** Element to receive focus when the dialog closes. Overrides the previously focused element. */
+  returnFocusRef?: RefObject<HTMLElement | null>;
 }
 
 export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
@@ -36,6 +44,8 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
       children,
       hideCloseButton = false,
       disableOverlayClose = false,
+      returnFocus = true,
+      returnFocusRef,
       className,
       ...props
     },
@@ -43,6 +53,14 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
   ) => {
     const headingId = useId();
     const descriptionId = useId();
+    const dialogRef = useRef<HTMLDialogElement>(null);
+
+    useModalFocus({
+      open,
+      containerRef: dialogRef,
+      returnFocus,
+      returnFocusRef,
+    });
 
     useEffect(() => {
       if (!open) {
@@ -74,8 +92,9 @@ export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
           }}
         />
         <dialog
-          ref={ref}
+          ref={mergeRefs(ref, dialogRef)}
           open
+          tabIndex={-1}
           aria-modal="true"
           aria-labelledby={heading ? headingId : undefined}
           aria-describedby={description ? descriptionId : undefined}

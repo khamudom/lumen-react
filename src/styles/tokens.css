@@ -1,4 +1,5 @@
-:root {
+:root,
+[data-lumen-theme="light"] {
   /* Colors (zinc-inspired palette) */
   --lumen-color-primary: #18181b;
   --lumen-color-secondary: #f4f4f5;
@@ -12,6 +13,9 @@
   --lumen-color-success: #16a34a;
   --lumen-color-warning: #f59e0b;
   --lumen-color-ring: #18181b;
+  --lumen-color-on-primary: #fafafa;
+  --lumen-color-on-danger: #fafafa;
+  --lumen-color-overlay: rgb(0 0 0 / 0.8);
 
   /* Spacing */
   --lumen-spacing-1: 0.25rem;
@@ -61,7 +65,7 @@
 
   /* Button component tokens */
   --lumen-button-bg: var(--lumen-color-primary);
-  --lumen-button-color: #fafafa;
+  --lumen-button-color: var(--lumen-color-on-primary);
   --lumen-button-border: transparent;
   --lumen-button-radius: var(--lumen-radius-md);
   --lumen-button-padding: var(--lumen-spacing-2) var(--lumen-spacing-4);
@@ -88,7 +92,7 @@
 
   /* Badge component tokens */
   --lumen-badge-bg: var(--lumen-color-primary);
-  --lumen-badge-color: #fafafa;
+  --lumen-badge-color: var(--lumen-color-on-primary);
   --lumen-badge-border: transparent;
   --lumen-badge-radius: var(--lumen-radius-full);
   --lumen-badge-padding: 0.125rem 0.625rem;
@@ -96,19 +100,26 @@
   --lumen-badge-font-weight: 600;
 }
 
-.lumen-dark {
+:root.lumen-dark,
+.lumen-dark,
+[data-lumen-theme="dark"] {
   --lumen-color-primary: #fafafa;
   --lumen-color-secondary: #27272a;
-  --lumen-color-surface: #09090b;
-  --lumen-color-background: #09090b;
+  --lumen-color-surface: #18181b;
+  --lumen-color-background: #000000;
   --lumen-color-border: #27272a;
   --lumen-color-text: #fafafa;
   --lumen-color-text-secondary: #a1a1aa;
   --lumen-color-muted: #27272a;
-  --lumen-color-danger: #7f1d1d;
+  --lumen-color-danger: #ef4444;
   --lumen-color-success: #22c55e;
   --lumen-color-warning: #f59e0b;
   --lumen-color-ring: #d4d4d8;
-  --lumen-button-color: #18181b;
-  --lumen-badge-color: #18181b;
+  --lumen-color-on-primary: #18181b;
+  --lumen-color-on-danger: #fafafa;
+  --lumen-color-overlay: rgb(0 0 0 / 0.8);
+  --lumen-input-bg: #09090b;
+  --lumen-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --lumen-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.45), 0 2px 4px -2px rgb(0 0 0 / 0.35);
+  --lumen-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
 }

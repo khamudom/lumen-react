@@ -19,13 +19,13 @@
 
 .lumen-badge--default {
   --lumen-badge-bg: var(--lumen-color-primary);
-  --lumen-badge-color: #fafafa;
+  --lumen-badge-color: var(--lumen-color-on-primary);
   --lumen-badge-border: transparent;
 }
 
 .lumen-badge--primary {
   --lumen-badge-bg: var(--lumen-color-primary);
-  --lumen-badge-color: #fafafa;
+  --lumen-badge-color: var(--lumen-color-on-primary);
   --lumen-badge-border: transparent;
 }
 
@@ -49,7 +49,7 @@
 
 .lumen-badge--danger {
   --lumen-badge-bg: var(--lumen-color-danger);
-  --lumen-badge-color: #fafafa;
+  --lumen-badge-color: var(--lumen-color-on-danger);
   --lumen-badge-border: transparent;
 }
 

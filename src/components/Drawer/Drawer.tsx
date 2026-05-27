@@ -3,10 +3,14 @@ import {
   forwardRef,
   useEffect,
   useId,
+  useRef,
   type ReactNode,
+  type RefObject,
 } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "../../utils/cn";
+import { mergeRefs } from "../../utils/mergeRefs";
+import { useModalFocus } from "../../utils/useModalFocus";
 import "./Drawer.css";
 
 export type DrawerSide = "left" | "right" | "top" | "bottom";
@@ -25,6 +29,10 @@ export interface DrawerProps extends DialogHTMLAttributes<HTMLDialogElement> {
   children?: ReactNode;
   hideCloseButton?: boolean;
   disableOverlayClose?: boolean;
+  /** Whether focus returns to the trigger when the drawer closes. @default true */
+  returnFocus?: boolean;
+  /** Element to receive focus when the drawer closes. Overrides the previously focused element. */
+  returnFocusRef?: RefObject<HTMLElement | null>;
 }
 
 export const Drawer = forwardRef<HTMLDialogElement, DrawerProps>(
@@ -38,6 +46,8 @@ export const Drawer = forwardRef<HTMLDialogElement, DrawerProps>(
       children,
       hideCloseButton = false,
       disableOverlayClose = false,
+      returnFocus = true,
+      returnFocusRef,
       className,
       ...props
     },
@@ -45,6 +55,14 @@ export const Drawer = forwardRef<HTMLDialogElement, DrawerProps>(
   ) => {
     const headingId = useId();
     const descriptionId = useId();
+    const dialogRef = useRef<HTMLDialogElement>(null);
+
+    useModalFocus({
+      open,
+      containerRef: dialogRef,
+      returnFocus,
+      returnFocusRef,
+    });
 
     useEffect(() => {
       if (!open) {
@@ -76,8 +94,9 @@ export const Drawer = forwardRef<HTMLDialogElement, DrawerProps>(
           }}
         />
         <dialog
-          ref={ref}
+          ref={mergeRefs(ref, dialogRef)}
           open
+          tabIndex={-1}
           aria-modal="true"
           aria-labelledby={heading ? headingId : undefined}
           aria-describedby={description ? descriptionId : undefined}

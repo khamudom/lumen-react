@@ -11,7 +11,7 @@
 .lumen-dialog__overlay {
   position: absolute;
   inset: 0;
-  background: rgb(0 0 0 / 0.8);
+  background: var(--lumen-color-overlay);
 }
 
 .lumen-dialog {

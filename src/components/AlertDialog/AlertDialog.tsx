@@ -2,11 +2,15 @@ import {
   forwardRef,
   useEffect,
   useId,
+  useRef,
   type DialogHTMLAttributes,
   type ReactNode,
+  type RefObject,
 } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "../../utils/cn";
+import { mergeRefs } from "../../utils/mergeRefs";
+import { useModalFocus } from "../../utils/useModalFocus";
 import "./AlertDialog.css";
 
 export interface AlertDialogProps
@@ -22,6 +26,10 @@ export interface AlertDialogProps
   onCancel?: () => void;
   onAction?: () => void;
   hideCancel?: boolean;
+  /** Whether focus returns to the trigger when the dialog closes. @default true */
+  returnFocus?: boolean;
+  /** Element to receive focus when the dialog closes. Overrides the previously focused element. */
+  returnFocusRef?: RefObject<HTMLElement | null>;
 }
 
 export const AlertDialog = forwardRef<HTMLDialogElement, AlertDialogProps>(
@@ -38,6 +46,8 @@ export const AlertDialog = forwardRef<HTMLDialogElement, AlertDialogProps>(
       onCancel,
       onAction,
       hideCancel = false,
+      returnFocus = true,
+      returnFocusRef,
       className,
       ...props
     },
@@ -45,6 +55,14 @@ export const AlertDialog = forwardRef<HTMLDialogElement, AlertDialogProps>(
   ) => {
     const titleId = useId();
     const descriptionId = useId();
+    const dialogRef = useRef<HTMLDialogElement>(null);
+
+    useModalFocus({
+      open,
+      containerRef: dialogRef,
+      returnFocus,
+      returnFocusRef,
+    });
 
     useEffect(() => {
       if (!open) {
@@ -70,8 +88,9 @@ export const AlertDialog = forwardRef<HTMLDialogElement, AlertDialogProps>(
       <div className="lumen-alert-dialog__portal">
         <div className="lumen-alert-dialog__overlay" />
         <dialog
-          ref={ref}
+          ref={mergeRefs(ref, dialogRef)}
           open
+          tabIndex={-1}
           aria-modal="true"
           aria-labelledby={title ? titleId : undefined}
           aria-describedby={description ? descriptionId : undefined}

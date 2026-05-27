@@ -7,7 +7,7 @@
 
 .lumen-checkbox-field__control-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--lumen-spacing-2);
 }
 

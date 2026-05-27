@@ -84,7 +84,7 @@
 /* Primary (default) */
 .lumen-button--primary {
   --lumen-button-bg: var(--lumen-color-primary);
-  --lumen-button-color: #fafafa;
+  --lumen-button-color: var(--lumen-color-on-primary);
   --lumen-button-border: transparent;
   --lumen-button-hover-bg: color-mix(in srgb, var(--lumen-color-primary) 90%, transparent);
 }
@@ -118,7 +118,7 @@
 /* Destructive */
 .lumen-button--destructive {
   --lumen-button-bg: var(--lumen-color-danger);
-  --lumen-button-color: #fafafa;
+  --lumen-button-color: var(--lumen-color-on-danger);
   --lumen-button-border: transparent;
   --lumen-button-hover-bg: color-mix(in srgb, var(--lumen-color-danger) 90%, transparent);
 }
