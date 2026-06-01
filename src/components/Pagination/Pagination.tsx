@@ -19,11 +19,11 @@ export interface PaginationLinkProps extends AnchorHTMLAttributes<HTMLAnchorElem
   isActive?: boolean;
 }
 
-export interface PaginationPreviousProps extends PaginationLinkProps {}
+export type PaginationPreviousProps = PaginationLinkProps;
 
-export interface PaginationNextProps extends PaginationLinkProps {}
+export type PaginationNextProps = PaginationLinkProps;
 
-export interface PaginationEllipsisProps extends HTMLAttributes<HTMLSpanElement> {}
+export type PaginationEllipsisProps = HTMLAttributes<HTMLSpanElement>;
 
 export const Pagination = forwardRef<HTMLElement, PaginationProps>(
   ({ className, children, ...props }, ref) => (

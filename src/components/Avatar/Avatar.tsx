@@ -27,7 +27,7 @@ export interface AvatarProps extends HTMLAttributes<HTMLSpanElement> {
   size?: AvatarSize;
 }
 
-export interface AvatarImageProps extends ImgHTMLAttributes<HTMLImageElement> {}
+export type AvatarImageProps = ImgHTMLAttributes<HTMLImageElement>;
 
 export interface AvatarFallbackProps extends HTMLAttributes<HTMLSpanElement> {
   children?: ReactNode;

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useEffect } from "react";
 import type { Preview } from "@storybook/react";
 import "../src/styles/tokens.css";

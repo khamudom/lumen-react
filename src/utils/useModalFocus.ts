@@ -21,6 +21,7 @@ export function useModalFocus({
       return undefined;
     }
 
+    const returnFocusElement = returnFocusRef?.current ?? null;
     previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
 
     if (containerRef.current) {
@@ -44,7 +45,7 @@ export function useModalFocus({
         return;
       }
 
-      const focusTarget = returnFocusRef?.current ?? previouslyFocusedRef.current;
+      const focusTarget = returnFocusElement ?? previouslyFocusedRef.current;
       restoreFocus(focusTarget);
     };
   }, [containerRef, open, returnFocus, returnFocusRef]);

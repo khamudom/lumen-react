@@ -2,12 +2,12 @@
 
 A reusable React + TypeScript component library for building dashboards and applications. Components are accessible by default, themeable via CSS variables, and tree-shakeable.
 
-**Package:** `@lumen-ui/react`
+**Package:** `@khamudom/lumen-ui-react`
 
 ## Installation
 
 ```bash
-npm install @lumen-ui/react
+npm install @khamudom/lumen-ui-react
 ```
 
 Peer dependencies:
@@ -21,8 +21,8 @@ npm install react react-dom
 Import components from the package entry:
 
 ```tsx
-import { Button, Input, Card, CardHeader, CardTitle, CardContent, Badge } from "@lumen-ui/react";
-import "@lumen-ui/react/styles.css";
+import { Button, Input, Card, CardHeader, CardTitle, CardContent, Badge } from "@khamudom/lumen-ui-react";
+import "@khamudom/lumen-ui-react/styles.css";
 ```
 
 ### Button
@@ -159,13 +159,13 @@ npm link
 In your consumer app:
 
 ```bash
-npm link @lumen-ui/react
+npm link @khamudom/lumen-ui-react
 ```
 
 Import styles in the consumer (if not bundled automatically):
 
 ```tsx
-import "@lumen-ui/react/styles.css";
+import "@khamudom/lumen-ui-react/styles.css";
 ```
 
 ## Publishing

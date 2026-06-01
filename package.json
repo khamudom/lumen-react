@@ -1,5 +1,5 @@
 {
-  "name": "@lumen-ui/react",
+  "name": "@khamudom/lumen-ui-react",
   "version": "0.1.0",
   "description": "A reusable React + TypeScript component library with accessible, themeable components",
   "type": "module",
@@ -87,7 +87,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/khamudom/lumen-react.git"
+    "url": "git+https://github.com/khamudom/lumen-react.git"
   },
   "publishConfig": {
     "access": "public"
