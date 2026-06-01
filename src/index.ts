@@ -31,6 +31,14 @@ export type { AvatarFallbackProps, AvatarImageProps, AvatarProps } from "./compo
 export { Badge } from "./components/Badge";
 export type { BadgeProps, BadgeVariant } from "./components/Badge";
 
+export { Banner, BannerDescription, BannerTitle } from "./components/Banner";
+export type {
+  BannerDescriptionProps,
+  BannerProps,
+  BannerTitleProps,
+  BannerVariant,
+} from "./components/Banner";
+
 export {
   Breadcrumb,
   BreadcrumbItem,
