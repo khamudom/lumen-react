@@ -3,25 +3,27 @@ import {
   forwardRef,
   useEffect,
   useId,
+  useLayoutEffect,
   useRef,
+  useState,
   type ReactNode,
   type RefObject,
+  type TransitionEvent,
 } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "../../utils/cn";
+import { restoreFocus } from "../../utils/focus";
 import { mergeRefs } from "../../utils/mergeRefs";
 import { useModalFocus } from "../../utils/useModalFocus";
 import "./Drawer.css";
-
-export type DrawerSide = "left" | "right" | "top" | "bottom";
 
 export interface DrawerProps extends DialogHTMLAttributes<HTMLDialogElement> {
   /** Whether the drawer is visible. */
   open: boolean;
   /** Called when the drawer requests to close. */
   onOpenChange?: (open: boolean) => void;
-  /** Edge the drawer slides from. */
-  side?: DrawerSide;
+  /** When true, the drawer slides in from the right. Defaults to the left side. */
+  right?: boolean;
   /** Accessible drawer heading. */
   heading?: ReactNode;
   /** Optional supporting description. */
@@ -40,7 +42,7 @@ export const Drawer = forwardRef<HTMLDialogElement, DrawerProps>(
     {
       open,
       onOpenChange,
-      side = "right",
+      right = false,
       heading,
       description,
       children,
@@ -56,13 +58,92 @@ export const Drawer = forwardRef<HTMLDialogElement, DrawerProps>(
     const headingId = useId();
     const descriptionId = useId();
     const dialogRef = useRef<HTMLDialogElement>(null);
+    const previouslyFocusedRef = useRef<HTMLElement | null>(null);
+    const wasPresentRef = useRef(false);
+    const [isPresent, setIsPresent] = useState(open);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+      if (open) {
+        setIsPresent(true);
+        setIsVisible(false);
+        return undefined;
+      }
+
+      setIsVisible(false);
+      return undefined;
+    }, [open]);
+
+    useLayoutEffect(() => {
+      if (!isPresent || !open || isVisible) {
+        return undefined;
+      }
+
+      let frame2 = 0;
+      const frame1 = requestAnimationFrame(() => {
+        frame2 = requestAnimationFrame(() => {
+          setIsVisible(true);
+        });
+      });
+
+      return () => {
+        cancelAnimationFrame(frame1);
+        if (frame2) {
+          cancelAnimationFrame(frame2);
+        }
+      };
+    }, [isPresent, isVisible, open]);
+
+    useEffect(() => {
+      if (open || !isPresent || isVisible) {
+        return undefined;
+      }
+
+      const timeout = window.setTimeout(() => {
+        setIsPresent(false);
+      }, 200);
+
+      return () => window.clearTimeout(timeout);
+    }, [isPresent, isVisible, open]);
+
+    const handleDrawerTransitionEnd = (event: TransitionEvent<HTMLDialogElement>) => {
+      if (event.propertyName !== "transform" || open) {
+        return;
+      }
+
+      setIsPresent(false);
+    };
+
+    useLayoutEffect(() => {
+      if (isPresent && open && !isVisible) {
+        previouslyFocusedRef.current = document.activeElement as HTMLElement | null;
+      }
+    }, [isPresent, isVisible, open]);
 
     useModalFocus({
-      open,
+      open: isPresent && open && isVisible,
       containerRef: dialogRef,
-      returnFocus,
-      returnFocusRef,
+      returnFocus: false,
     });
+
+    useEffect(() => {
+      if (isPresent) {
+        wasPresentRef.current = true;
+        return;
+      }
+
+      if (!wasPresentRef.current) {
+        return;
+      }
+
+      wasPresentRef.current = false;
+
+      if (!returnFocus) {
+        return;
+      }
+
+      restoreFocus(returnFocusRef?.current ?? previouslyFocusedRef.current);
+    }, [isPresent, returnFocus, returnFocusRef]);
 
     useEffect(() => {
       if (!open) {
@@ -79,12 +160,17 @@ export const Drawer = forwardRef<HTMLDialogElement, DrawerProps>(
       return () => document.removeEventListener("keydown", handleKeyDown);
     }, [onOpenChange, open]);
 
-    if (!open) {
+    if (!isPresent) {
       return null;
     }
 
     return createPortal(
-      <div className="lumen-drawer__portal">
+      <div
+        className={cn(
+          "lumen-drawer__portal",
+          isVisible && "lumen-drawer__portal--visible",
+        )}
+      >
         <div
           className="lumen-drawer__overlay"
           onClick={() => {
@@ -93,16 +179,27 @@ export const Drawer = forwardRef<HTMLDialogElement, DrawerProps>(
             }
           }}
         />
-        <dialog
-          ref={mergeRefs(ref, dialogRef)}
-          open
-          tabIndex={-1}
-          aria-modal="true"
-          aria-labelledby={heading ? headingId : undefined}
-          aria-describedby={description ? descriptionId : undefined}
-          className={cn("lumen-drawer", `lumen-drawer--${side}`, className)}
-          {...props}
+        <div
+          className={cn(
+            "lumen-drawer__surface",
+            right ? "lumen-drawer__surface--right" : "lumen-drawer__surface--left",
+          )}
         >
+          <dialog
+            ref={mergeRefs(ref, dialogRef)}
+            open
+            tabIndex={-1}
+            aria-modal="true"
+            aria-labelledby={heading ? headingId : undefined}
+            aria-describedby={description ? descriptionId : undefined}
+            className={cn(
+              "lumen-drawer",
+              isVisible && "lumen-drawer--visible",
+              className,
+            )}
+            onTransitionEnd={handleDrawerTransitionEnd}
+            {...props}
+          >
           {!hideCloseButton && (
             <button
               type="button"
@@ -128,7 +225,8 @@ export const Drawer = forwardRef<HTMLDialogElement, DrawerProps>(
             </div>
           )}
           <div className="lumen-drawer__body">{children}</div>
-        </dialog>
+          </dialog>
+        </div>
       </div>,
       document.body,
     );

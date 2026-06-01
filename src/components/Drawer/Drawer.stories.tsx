@@ -8,9 +8,8 @@ const meta: Meta<typeof Drawer> = {
   component: Drawer,
   tags: ["autodocs"],
   argTypes: {
-    side: {
-      control: "select",
-      options: ["left", "right", "top", "bottom"],
+    right: {
+      control: "boolean",
     },
   },
 };
@@ -37,16 +36,27 @@ export const Default: Story = {
       </>
     );
   },
-  args: {
-    side: "right",
-  },
 };
 
-export const Left: Story = {
+export const Right: Story = {
+  render: (args) => {
+    const [open, setOpen] = useState(false);
+
+    return (
+      <>
+        <Button onClick={() => setOpen(true)}>Open right drawer</Button>
+        <Drawer
+          {...args}
+          open={open}
+          onOpenChange={setOpen}
+          heading="Details"
+        >
+          Use right drawers for detail panels or secondary actions.
+        </Drawer>
+      </>
+    );
+  },
   args: {
-    open: true,
-    side: "left",
-    heading: "Navigation",
-    children: "Use left drawers for app navigation or secondary content.",
+    right: true,
   },
 };

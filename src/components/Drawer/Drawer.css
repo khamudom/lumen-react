@@ -9,54 +9,76 @@
   position: absolute;
   inset: 0;
   background: var(--lumen-color-overlay);
+  opacity: 0;
+  transition: opacity var(--lumen-transition-normal);
+}
+
+.lumen-drawer__portal--visible .lumen-drawer__overlay {
+  opacity: 1;
+}
+
+.lumen-drawer__surface {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: min(100%, 24rem);
+  height: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.lumen-drawer__surface--left {
+  left: 0;
+}
+
+.lumen-drawer__surface--right {
+  right: 0;
 }
 
 .lumen-drawer {
-  position: absolute;
-  z-index: 1;
+  position: relative;
+  inset: auto;
   display: flex;
   flex-direction: column;
   gap: var(--lumen-spacing-4);
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  max-width: none;
+  max-height: none;
   margin: 0;
   padding: var(--lumen-spacing-6);
   color: var(--lumen-color-text);
   background: var(--lumen-color-background);
   border: 1px solid var(--lumen-color-border);
   box-shadow: var(--lumen-shadow-lg);
+  pointer-events: auto;
+  transition: transform var(--lumen-transition-normal);
+  will-change: transform;
 }
 
-.lumen-drawer--left,
-.lumen-drawer--right {
-  top: 0;
-  bottom: 0;
-  width: min(100%, 24rem);
-}
-
-.lumen-drawer--left {
-  left: 0;
+.lumen-drawer__surface--left .lumen-drawer {
   border-right: 1px solid var(--lumen-color-border);
+  transform: translate3d(-100%, 0, 0);
 }
 
-.lumen-drawer--right {
-  right: 0;
+.lumen-drawer__surface--right .lumen-drawer {
   border-left: 1px solid var(--lumen-color-border);
+  transform: translate3d(100%, 0, 0);
 }
 
-.lumen-drawer--top,
-.lumen-drawer--bottom {
-  right: 0;
-  left: 0;
-  max-height: 80vh;
+.lumen-drawer__surface--left .lumen-drawer.lumen-drawer--visible,
+.lumen-drawer__surface--right .lumen-drawer.lumen-drawer--visible {
+  transform: translate3d(0, 0, 0);
 }
 
-.lumen-drawer--top {
-  top: 0;
-  border-bottom: 1px solid var(--lumen-color-border);
-}
-
-.lumen-drawer--bottom {
-  bottom: 0;
-  border-top: 1px solid var(--lumen-color-border);
+@media (prefers-reduced-motion: reduce) {
+  .lumen-drawer,
+  .lumen-drawer__overlay {
+    transition: none;
+  }
 }
 
 .lumen-drawer__close {
@@ -91,6 +113,7 @@
 .lumen-drawer__header {
   display: grid;
   gap: var(--lumen-spacing-2);
+  flex-shrink: 0;
 }
 
 .lumen-drawer__heading,
@@ -113,6 +136,8 @@
 }
 
 .lumen-drawer__body {
+  flex: 1;
+  min-height: 0;
   overflow: auto;
   font-size: var(--lumen-font-size-sm);
   line-height: var(--lumen-line-height);

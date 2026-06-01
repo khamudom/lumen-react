@@ -86,7 +86,7 @@ export { Dialog } from "./components/Dialog";
 export type { DialogProps } from "./components/Dialog";
 
 export { Drawer } from "./components/Drawer";
-export type { DrawerProps, DrawerSide } from "./components/Drawer";
+export type { DrawerProps } from "./components/Drawer";
 
 export { Dropdown, DropdownItem } from "./components/Dropdown";
 export type { DropdownItemProps, DropdownProps } from "./components/Dropdown";

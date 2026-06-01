@@ -10,16 +10,26 @@ describe("Drawer", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
-  it("renders with the selected side class", () => {
+  it("renders on the left by default", () => {
     render(
-      <Drawer open side="left" heading="Filters">
+      <Drawer open heading="Filters">
         Content
       </Drawer>,
     );
 
-    expect(screen.getByRole("dialog", { name: "Filters" })).toHaveClass(
-      "lumen-drawer--left",
+    const dialog = screen.getByRole("dialog", { name: "Filters" });
+    expect(dialog.parentElement).toHaveClass("lumen-drawer__surface--left");
+  });
+
+  it("renders on the right when right is true", () => {
+    render(
+      <Drawer open right heading="Filters">
+        Content
+      </Drawer>,
     );
+
+    const dialog = screen.getByRole("dialog", { name: "Filters" });
+    expect(dialog.parentElement).toHaveClass("lumen-drawer__surface--right");
   });
 
   it("requests close from close button and Escape", async () => {
