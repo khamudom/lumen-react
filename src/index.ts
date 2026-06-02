@@ -196,4 +196,17 @@ export type {
 export { Tooltip } from "./components/Tooltip";
 export type { TooltipPlacement, TooltipProps } from "./components/Tooltip";
 
+export {
+  ThemeProvider,
+  applyTheme,
+  getSystemTheme,
+  useTheme,
+} from "./theme";
+export type {
+  LumenTheme,
+  ResolvedTheme,
+  ThemeContextValue,
+  ThemeProviderProps,
+} from "./theme";
+
 export { cn } from "./utils";

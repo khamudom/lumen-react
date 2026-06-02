@@ -1,24 +1,12 @@
 /* eslint-disable react-refresh/only-export-components */
 import { useEffect } from "react";
 import type { Preview } from "@storybook/react";
+import { applyTheme } from "../src/theme/applyTheme";
+import type { ResolvedTheme } from "../src/theme/types";
 import "../src/styles/tokens.css";
 import "../src/styles/globals.css";
 
-type Theme = "light" | "dark";
-
-function applyTheme(theme: Theme) {
-  const isDark = theme === "dark";
-  const root = document.documentElement;
-  const body = document.body;
-
-  root.dataset.lumenTheme = theme;
-  body.dataset.lumenTheme = theme;
-
-  root.classList.toggle("lumen-dark", isDark);
-  body.classList.toggle("lumen-dark", isDark);
-}
-
-function ThemeDecorator(Story: () => React.ReactNode, context: { globals: { theme?: Theme } }) {
+function ThemeDecorator(Story: () => React.ReactNode, context: { globals: { theme?: ResolvedTheme } }) {
   const theme = context.globals.theme ?? "light";
   const isDark = theme === "dark";
 

@@ -27,7 +27,11 @@
 
 .lumen-banner--warning {
   --lumen-banner-bg: color-mix(in srgb, var(--lumen-color-warning) 18%, var(--lumen-color-background));
-  --lumen-banner-color: color-mix(in srgb, var(--lumen-color-warning) 85%, #78350f);
+  --lumen-banner-color: color-mix(
+    in srgb,
+    var(--lumen-color-warning) 85%,
+    var(--lumen-color-warning-foreground)
+  );
   --lumen-banner-border: color-mix(in srgb, var(--lumen-color-warning) 35%, var(--lumen-color-border));
   --lumen-banner-description-color: color-mix(in srgb, var(--lumen-color-warning) 70%, var(--lumen-color-text));
 }

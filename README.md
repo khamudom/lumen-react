@@ -76,7 +76,75 @@ import "@khamudom/lumen-ui-react/styles.css";
 
 ## Theming
 
-Global design tokens live in `tokens.css` and are applied when you import the library (or `styles.css` in consuming apps).
+Lumen ships with **light** and **dark** palettes defined in `tokens.css`. Components read design tokens via CSS variables, so switching themes does not require separate component variants.
+
+### ThemeProvider (recommended)
+
+Wrap your app with `ThemeProvider` to toggle themes at runtime:
+
+```tsx
+import {
+  ThemeProvider,
+  Button,
+  useTheme,
+} from "@khamudom/lumen-ui-react";
+import "@khamudom/lumen-ui-react/styles.css";
+
+function ThemeToggle() {
+  const { resolvedTheme, toggleTheme } = useTheme();
+
+  return (
+    <Button variant="outline" onClick={toggleTheme}>
+      {resolvedTheme === "dark" ? "Light mode" : "Dark mode"}
+    </Button>
+  );
+}
+
+export function App() {
+  return (
+    <ThemeProvider defaultTheme="system">
+      <ThemeToggle />
+      {/* your app */}
+    </ThemeProvider>
+  );
+}
+```
+
+`ThemeProvider` supports:
+
+| Prop | Description |
+|------|-------------|
+| `defaultTheme` | `"light"`, `"dark"`, or `"system"` (default: `"light"`) |
+| `theme` | Controlled theme preference |
+| `onThemeChange` | Callback when the user changes theme |
+| `storageKey` | Persist preference to `localStorage` (default: `"lumen-theme"`, set `false` to disable) |
+| `enableGlobalTheme` | Apply theme to `<html>` and `<body>` (default: `true`) |
+
+### Manual theme switching
+
+Without React, set the theme on the document root:
+
+```tsx
+import { applyTheme } from "@khamudom/lumen-ui-react";
+
+applyTheme("dark"); // or "light"
+```
+
+Or use CSS hooks directly:
+
+```html
+<html data-lumen-theme="dark" class="lumen-dark">
+```
+
+Scoped dark mode works on any ancestor:
+
+```html
+<div data-lumen-theme="dark" class="lumen-dark">
+  <!-- dark-themed subtree -->
+</div>
+```
+
+### Custom tokens
 
 Override globally:
 

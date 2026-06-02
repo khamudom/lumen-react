@@ -1,1 +1,1 @@
-// Placeholder for future shared hooks
+export { useTheme } from "../theme/useTheme";

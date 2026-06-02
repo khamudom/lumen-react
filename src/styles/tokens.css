@@ -12,6 +12,7 @@
   --lumen-color-danger: #ef4444;
   --lumen-color-success: #16a34a;
   --lumen-color-warning: #f59e0b;
+  --lumen-color-warning-foreground: #78350f;
   --lumen-color-ring: #18181b;
   --lumen-color-on-primary: #fafafa;
   --lumen-color-on-danger: #fafafa;
@@ -114,6 +115,7 @@
   --lumen-color-danger: #ef4444;
   --lumen-color-success: #22c55e;
   --lumen-color-warning: #f59e0b;
+  --lumen-color-warning-foreground: #fde68a;
   --lumen-color-ring: #d4d4d8;
   --lumen-color-on-primary: #18181b;
   --lumen-color-on-danger: #fafafa;
