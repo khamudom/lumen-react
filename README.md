@@ -71,7 +71,7 @@ import "@khamudom/lumen-ui-react/styles.css";
 ### Badge
 
 ```tsx
-<Badge variant="success">Active</Badge>
+<Badge variant="success" appearance="tint">Active</Badge>
 ```
 
 ## Theming

@@ -13,6 +13,15 @@ describe("Badge", () => {
     expect(screen.getByText("Active")).toHaveClass("lumen-badge--success");
   });
 
+  it("applies appearance class", () => {
+    render(
+      <Badge variant="success" appearance="tint">
+        Active
+      </Badge>,
+    );
+    expect(screen.getByText("Active")).toHaveClass("lumen-badge--appearance-tint");
+  });
+
   it("forwards ref", () => {
     const ref = { current: null as HTMLSpanElement | null };
     render(<Badge ref={ref}>Tag</Badge>);

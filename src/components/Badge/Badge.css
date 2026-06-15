@@ -17,44 +17,60 @@
     color var(--lumen-transition-fast);
 }
 
+/* Variants */
+
 .lumen-badge--default {
-  --lumen-badge-bg: var(--lumen-color-primary);
-  --lumen-badge-color: var(--lumen-color-on-primary);
-  --lumen-badge-border: transparent;
+  --lumen-badge-accent: var(--lumen-color-text-secondary);
+  --lumen-badge-filled-bg: var(--lumen-color-secondary);
+  --lumen-badge-filled-color: var(--lumen-color-text);
 }
 
 .lumen-badge--primary {
-  --lumen-badge-bg: var(--lumen-color-primary);
-  --lumen-badge-color: var(--lumen-color-on-primary);
-  --lumen-badge-border: transparent;
-}
-
-.lumen-badge--secondary {
-  --lumen-badge-bg: var(--lumen-color-secondary);
-  --lumen-badge-color: var(--lumen-color-text);
-  --lumen-badge-border: transparent;
+  --lumen-badge-accent: var(--lumen-color-primary);
+  --lumen-badge-filled-bg: var(--lumen-color-primary);
+  --lumen-badge-filled-color: var(--lumen-color-on-primary);
 }
 
 .lumen-badge--success {
-  --lumen-badge-bg: color-mix(in srgb, var(--lumen-color-success) 15%, transparent);
-  --lumen-badge-color: var(--lumen-color-success);
-  --lumen-badge-border: transparent;
+  --lumen-badge-accent: var(--lumen-color-success);
+  --lumen-badge-filled-bg: var(--lumen-color-success);
+  --lumen-badge-filled-color: var(--lumen-color-on-primary);
 }
 
 .lumen-badge--warning {
-  --lumen-badge-bg: color-mix(in srgb, var(--lumen-color-warning) 15%, transparent);
-  --lumen-badge-color: var(--lumen-color-warning);
-  --lumen-badge-border: transparent;
+  --lumen-badge-accent: var(--lumen-color-warning);
+  --lumen-badge-filled-bg: var(--lumen-color-warning);
+  --lumen-badge-filled-color: var(--lumen-color-warning-foreground);
 }
 
 .lumen-badge--danger {
-  --lumen-badge-bg: var(--lumen-color-danger);
-  --lumen-badge-color: var(--lumen-color-on-danger);
+  --lumen-badge-accent: var(--lumen-color-danger);
+  --lumen-badge-filled-bg: var(--lumen-color-danger);
+  --lumen-badge-filled-color: var(--lumen-color-on-danger);
+}
+
+/* Appearances */
+
+.lumen-badge--appearance-filled {
+  --lumen-badge-bg: var(--lumen-badge-filled-bg);
+  --lumen-badge-color: var(--lumen-badge-filled-color);
   --lumen-badge-border: transparent;
 }
 
-.lumen-badge--outline {
+.lumen-badge--appearance-tint {
+  --lumen-badge-bg: color-mix(in srgb, var(--lumen-badge-accent) 15%, transparent);
+  --lumen-badge-color: var(--lumen-badge-accent);
+  --lumen-badge-border: transparent;
+}
+
+.lumen-badge--appearance-outline {
   --lumen-badge-bg: transparent;
-  --lumen-badge-color: var(--lumen-color-text);
-  --lumen-badge-border: var(--lumen-color-border);
+  --lumen-badge-color: var(--lumen-badge-accent);
+  --lumen-badge-border: var(--lumen-badge-accent);
+}
+
+.lumen-badge--appearance-ghost {
+  --lumen-badge-bg: transparent;
+  --lumen-badge-color: var(--lumen-badge-accent);
+  --lumen-badge-border: transparent;
 }

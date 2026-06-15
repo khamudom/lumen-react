@@ -29,7 +29,7 @@ export { Avatar, AvatarFallback, AvatarImage } from "./components/Avatar";
 export type { AvatarFallbackProps, AvatarImageProps, AvatarProps } from "./components/Avatar";
 
 export { Badge } from "./components/Badge";
-export type { BadgeProps, BadgeVariant } from "./components/Badge";
+export type { BadgeAppearance, BadgeProps, BadgeVariant } from "./components/Badge";
 
 export { Banner, BannerDescription, BannerTitle } from "./components/Banner";
 export type {

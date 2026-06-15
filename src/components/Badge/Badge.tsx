@@ -5,22 +5,32 @@ import "./Badge.css";
 export type BadgeVariant =
   | "default"
   | "primary"
-  | "secondary"
   | "success"
-  | "warning"
   | "danger"
-  | "outline";
+  | "warning";
+
+export type BadgeAppearance = "filled" | "tint" | "outline" | "ghost";
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
-  /** Visual style variant */
+  /** Semantic color variant */
   variant?: BadgeVariant;
+  /** Visual treatment applied to the variant */
+  appearance?: BadgeAppearance;
 }
 
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(
-  ({ variant = "default", className, children, ...props }, ref) => (
+  (
+    { variant = "default", appearance = "filled", className, children, ...props },
+    ref,
+  ) => (
     <span
       ref={ref}
-      className={cn("lumen-badge", `lumen-badge--${variant}`, className)}
+      className={cn(
+        "lumen-badge",
+        `lumen-badge--${variant}`,
+        `lumen-badge--appearance-${appearance}`,
+        className,
+      )}
       {...props}
     >
       {children}

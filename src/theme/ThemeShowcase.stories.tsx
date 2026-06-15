@@ -74,8 +74,12 @@ function ComponentSamples() {
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
         <Badge>Default</Badge>
-        <Badge variant="success">Success</Badge>
-        <Badge variant="warning">Warning</Badge>
+        <Badge variant="success" appearance="tint">
+          Success
+        </Badge>
+        <Badge variant="warning" appearance="tint">
+          Warning
+        </Badge>
         <Badge variant="danger">Danger</Badge>
       </div>
 
