@@ -208,5 +208,3 @@ export type {
   ThemeContextValue,
   ThemeProviderProps,
 } from "./theme";
-
-export { cn } from "./utils";
