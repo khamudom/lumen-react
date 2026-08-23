@@ -32,6 +32,18 @@ describe("Dropdown", () => {
     expect(screen.queryByRole("menu")).not.toBeInTheDocument();
   });
 
+  it("applies the circle trigger shape", () => {
+    render(
+      <Dropdown trigger="Account" triggerShape="circle">
+        <DropdownItem>Profile</DropdownItem>
+      </Dropdown>,
+    );
+
+    expect(screen.getByText("Account")).toHaveClass(
+      "lumen-dropdown__trigger--circle",
+    );
+  });
+
   it("supports controlled open state", () => {
     render(
       <Dropdown trigger="Actions" open>

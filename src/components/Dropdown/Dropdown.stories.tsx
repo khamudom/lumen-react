@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Avatar, AvatarFallback, AvatarImage } from "../Avatar";
 import { Dropdown, DropdownItem } from "./Dropdown";
 
 const meta: Meta<typeof Dropdown> = {
@@ -9,6 +10,10 @@ const meta: Meta<typeof Dropdown> = {
     align: {
       control: "radio",
       options: ["start", "end"],
+    },
+    triggerShape: {
+      control: "radio",
+      options: ["default", "circle"],
     },
   },
 };
@@ -33,6 +38,29 @@ export const Open: Story = {
   args: {
     trigger: "Account",
     defaultOpen: true,
+    align: "end",
+    children: (
+      <>
+        <DropdownItem>Profile</DropdownItem>
+        <DropdownItem>Billing</DropdownItem>
+        <DropdownItem>Sign out</DropdownItem>
+      </>
+    ),
+  },
+};
+
+export const Circle: Story = {
+  args: {
+    trigger: (
+      <Avatar>
+        <AvatarImage
+          src="https://api.dicebear.com/9.x/personas/svg?seed=Emery"
+          alt="Account"
+        />
+        <AvatarFallback>?</AvatarFallback>
+      </Avatar>
+    ),
+    triggerShape: "circle",
     align: "end",
     children: (
       <>

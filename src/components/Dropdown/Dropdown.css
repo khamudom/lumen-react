@@ -24,6 +24,13 @@
     color var(--lumen-transition-fast);
 }
 
+.lumen-dropdown__trigger--circle {
+  aspect-ratio: 1 / 1;
+  min-width: var(--lumen-button-min-height);
+  padding: 0;
+  border-radius: var(--lumen-radius-full);
+}
+
 .lumen-dropdown__trigger::-webkit-details-marker {
   display: none;
 }

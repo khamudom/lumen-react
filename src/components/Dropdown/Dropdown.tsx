@@ -12,6 +12,7 @@ import { cn } from "../../utils/cn";
 import "./Dropdown.css";
 
 type DropdownAlign = "start" | "end";
+export type DropdownTriggerShape = "default" | "circle";
 
 interface DropdownContextValue {
   close: () => void;
@@ -26,6 +27,8 @@ export interface DropdownProps extends DetailsHTMLAttributes<HTMLDetailsElement>
   defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
   align?: DropdownAlign;
+  /** Shape of the trigger control. Use `circle` for avatar or icon menus. @default "default" */
+  triggerShape?: DropdownTriggerShape;
 }
 
 export interface DropdownItemProps
@@ -43,6 +46,7 @@ export const Dropdown = forwardRef<HTMLDetailsElement, DropdownProps>(
       defaultOpen = false,
       onOpenChange,
       align = "start",
+      triggerShape = "default",
       className,
       onToggle,
       ...props
@@ -78,7 +82,10 @@ export const Dropdown = forwardRef<HTMLDetailsElement, DropdownProps>(
           {...props}
         >
           <summary
-            className="lumen-dropdown__trigger"
+            className={cn(
+              "lumen-dropdown__trigger",
+              triggerShape !== "default" && `lumen-dropdown__trigger--${triggerShape}`,
+            )}
             aria-haspopup="menu"
             aria-expanded={isOpen}
             aria-controls={menuId}

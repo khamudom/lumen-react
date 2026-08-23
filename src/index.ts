@@ -97,7 +97,11 @@ export { Drawer } from "./components/Drawer";
 export type { DrawerProps } from "./components/Drawer";
 
 export { Dropdown, DropdownItem } from "./components/Dropdown";
-export type { DropdownItemProps, DropdownProps } from "./components/Dropdown";
+export type {
+  DropdownItemProps,
+  DropdownProps,
+  DropdownTriggerShape,
+} from "./components/Dropdown";
 
 export { Input } from "./components/Input";
 export type { InputProps } from "./components/Input";

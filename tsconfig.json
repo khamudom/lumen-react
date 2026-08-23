@@ -16,11 +16,7 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "sourceMap": true
   },
   "include": ["src", ".storybook", "vitest.setup.ts"],
   "exclude": ["node_modules", "dist", "storybook-static"]
