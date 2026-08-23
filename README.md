@@ -4,6 +4,8 @@ A reusable React + TypeScript component library for building dashboards and appl
 
 **Package:** `@khamudom/lumen-ui-react`
 
+**Storybook:** [https://khamudom.github.io/lumen-react/](https://khamudom.github.io/lumen-react/)
+
 ## Installation
 
 ```bash
@@ -21,7 +23,15 @@ npm install react react-dom
 Import components from the package entry:
 
 ```tsx
-import { Button, Input, Card, CardHeader, CardTitle, CardContent, Badge } from "@khamudom/lumen-ui-react";
+import {
+  Button,
+  Input,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  Badge,
+} from "@khamudom/lumen-ui-react";
 import "@khamudom/lumen-ui-react/styles.css";
 ```
 
@@ -71,7 +81,9 @@ import "@khamudom/lumen-ui-react/styles.css";
 ### Badge
 
 ```tsx
-<Badge variant="success" appearance="tint">Active</Badge>
+<Badge variant="success" appearance="tint">
+  Active
+</Badge>
 ```
 
 ## Theming
@@ -83,11 +95,7 @@ Lumen ships with **light** and **dark** palettes defined in `tokens.css`. Compon
 Wrap your app with `ThemeProvider` to toggle themes at runtime:
 
 ```tsx
-import {
-  ThemeProvider,
-  Button,
-  useTheme,
-} from "@khamudom/lumen-ui-react";
+import { ThemeProvider, Button, useTheme } from "@khamudom/lumen-ui-react";
 import "@khamudom/lumen-ui-react/styles.css";
 
 function ThemeToggle() {
@@ -112,13 +120,13 @@ export function App() {
 
 `ThemeProvider` supports:
 
-| Prop | Description |
-|------|-------------|
-| `defaultTheme` | `"light"`, `"dark"`, or `"system"` (default: `"light"`) |
-| `theme` | Controlled theme preference |
-| `onThemeChange` | Callback when the user changes theme |
-| `storageKey` | Persist preference to `localStorage` (default: `"lumen-theme"`, set `false` to disable) |
-| `enableGlobalTheme` | Apply theme to `<html>` and `<body>` (default: `true`) |
+| Prop                | Description                                                                             |
+| ------------------- | --------------------------------------------------------------------------------------- |
+| `defaultTheme`      | `"light"`, `"dark"`, or `"system"` (default: `"light"`)                                 |
+| `theme`             | Controlled theme preference                                                             |
+| `onThemeChange`     | Callback when the user changes theme                                                    |
+| `storageKey`        | Persist preference to `localStorage` (default: `"lumen-theme"`, set `false` to disable) |
+| `enableGlobalTheme` | Apply theme to `<html>` and `<body>` (default: `true`)                                  |
 
 ### Manual theme switching
 
@@ -134,6 +142,8 @@ Or use CSS hooks directly:
 
 ```html
 <html data-lumen-theme="dark" class="lumen-dark">
+  <!-- … -->
+</html>
 ```
 
 Scoped dark mode works on any ancestor:
@@ -196,15 +206,23 @@ Each component folder contains:
 
 ## Scripts
 
-| Command | Description |
-|--------|-------------|
-| `npm run dev` | Build library in watch mode |
-| `npm run build` | Typecheck + production build to `dist/` |
-| `npm run storybook` | Start Storybook on port 6006 |
-| `npm run build-storybook` | Static Storybook build |
-| `npm run test` | Run Vitest component tests |
-| `npm run lint` | ESLint |
-| `npm run format` | Prettier write |
+| Command                   | Description                             |
+| ------------------------- | --------------------------------------- |
+| `npm run dev`             | Build library in watch mode             |
+| `npm run build`           | Typecheck + production build to `dist/` |
+| `npm run storybook`       | Start Storybook on port 6006            |
+| `npm run build-storybook` | Static Storybook build                  |
+| `npm run test`            | Run Vitest component tests              |
+| `npm run lint`            | ESLint                                  |
+| `npm run format`          | Prettier write                          |
+
+## Public Storybook
+
+Storybook is published to GitHub Pages on every push to `main`:
+
+[https://khamudom.github.io/lumen-react/](https://khamudom.github.io/lumen-react/)
+
+One-time setup (repo Settings → Pages): set **Source** to **GitHub Actions**. After that, the `Deploy Storybook` workflow builds and deploys automatically. You can also run it manually from the Actions tab.
 
 ## Local development
 
