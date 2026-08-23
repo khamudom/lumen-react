@@ -1,6 +1,6 @@
 {
   "name": "@khamudom/lumen-ui-react",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A reusable React + TypeScript component library with accessible, themeable components",
   "homepage": "https://khamudom.github.io/lumen-react/",
   "type": "module",
